@@ -1,14 +1,7 @@
 // To do list:
-//   Só ativar as funções se todos os campos forem preenchidos (FEITO)
-//   Consertar o bug relacioando ao de cima (FEITO)
-//   Mudar o aspecto dos botões quando tiverem ativados (FEITO)
-//   Ativar o line through das taks quando o tempo acabar (FEITO)
-//   Tirar a centralizaççao das tasks sem fuder todo o layout (FEITO)
-//   Consertar o bug de sobreposição de contagens (FEITO)
-//   Adicionar os links das redes sociais (FEITO)
-//   Talvez: criar um layout pra quando o timer acabar (FEITO)
 //   Talvez: mudar a caixa de alert 
 //   Ajustar a responsividade 
+// Adicionar funcionalidade de exclusão de tarefas
 
 let startMinutes = 0;
 let startMinutesRest = 0
@@ -36,7 +29,7 @@ const activate25 = () => { button1.dataset.active = "on"; button2.dataset.active
 const time30 = () => {if (!focus && !rest) {startMinutes = 30; time = startMinutes * 60; console.log(time);}}
 const activate30 = () => { button1.dataset.active = "off"; button2.dataset.active = "on"; button3.dataset.active = "off"}
 
-const time35 = () => {if (!focus && !rest) {startMinutes = 0.05; time = startMinutes * 60; console.log(time);}}
+const time35 = () => {if (!focus && !rest) {startMinutes = 35; time = startMinutes * 60; console.log(time);}}
 const activate35 = () => { button1.dataset.active = "off"; button2.dataset.active = "off"; button3.dataset.active = "on"}
 
 const time05 = () => {if (!focus && !rest) {startMinutesRest = 5; restTime = startMinutesRest * 60; console.log(restTime);}}
@@ -45,9 +38,10 @@ const activate05 = () => { button4.dataset.active = "on"; button5.dataset.active
 const time10 = () => {if (!focus && !rest) {startMinutesRest = 10; restTime = startMinutesRest * 60; console.log(restTime);}}
 const activate10 = () => { button4.dataset.active = "off"; button5.dataset.active = "on"; button6.dataset.active = "off"}
 
-const time15 = () => {if (!focus && !rest) {startMinutesRest = 0.05; restTime = startMinutesRest * 60; console.log(restTime);}}
+const time15 = () => {if (!focus && !rest) {startMinutesRest = 15; restTime = startMinutesRest * 60; console.log(restTime);}}
 const activate15 = () => { button4.dataset.active = "off"; button5.dataset.active = "off"; button6.dataset.active = "on"}
 
+// Função associada ao botão principal responsável por iniciar todas as funções
 function startFunctions() {
   if (rest || focus) {
     flowControl()
@@ -56,10 +50,12 @@ function startFunctions() {
   }
 }
 
+// Função responsável por não permitir a sobreposição de tasks
 function flowControl () {
-  alert("One task at once! Don't overdo yourself")
+  alert("One task at once! Don't overdo yourself!")
 }
 
+// Função responsável pela contagem e adição de tasks
 function cronometer() {
   if (startMinutes == 0 || startMinutesRest == 0 || insideValue == "") {
     alert("Preencha todos os campos")
@@ -148,7 +144,7 @@ function Transfer() {
 }
 
 // Adiciona as tarefas do input à barra lateral com os devidos elementos e atributos
-let i = 0
+let i = 0 // Variável utilizada para a criação de diferentes id's através da sua iteração
 function Add() {
   let label = document.createElement("label");
   let input = document.createElement("input");

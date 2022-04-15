@@ -9,10 +9,11 @@
   - Timer: When i searched ways of creating a timer i ended up finding lots of differents ways of doing it. I opted for a setInterval approach, because it seemed a simple and efficient logic for me. 
   - Setting the times: This one was messy, but functional at least. I created a function responsible for changing the times variables for rest and focus for every button. I also added an extra function responsible for changing the style of the pressed button. I'm aware i could have used costumized radio buttons for this, but i wanted to try this alternative with data-attributes on HTML.
   - Adding the tasks: This was a really simple one. I declared an onClick function that created a label element containing a checkbox and the task written on the input. The only trick on this was using a variable to increment on every new task. The variable was "stringfied" and added as the new label's id, so that every label had an new and unique id, what was going to be quite useful on the following function.
-  - Slash the finished tasks: Since i had a id on every new label, all i needed to do was setting the style of that particular label for it to be slashed when the timer reached 0. 
+  - Slash the finished tasks: Since i had a id on every new label, all i needed to do was set the style of that particular label for it to be slashed when the timer reached 0. 
 
  After finishing all this, all i had to do was setting the Rest and Focus states, the validations for the form and solving a few bugs on the layout and the timer itself.
  Right now, i still plan adding some features to this project as:
-   - Costumized alert boxed
+   - Costumized alert boxes
    - Being able to add multiple tasks at once
    - Being able to listen some playlists during the focus times (this one is a HUGE maybe, but i like the idea)
+   - Work on the responsiveness

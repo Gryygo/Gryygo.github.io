@@ -1,7 +1,7 @@
 // To do list:
 //   Talvez: mudar a caixa de alert 
 //   Ajustar a responsividade 
-// Adicionar funcionalidade de exclusão de tarefas
+//   Adicionar funcionalidade de exclusão de tarefas
 
 let startMinutes = 0;
 let startMinutesRest = 0
@@ -22,7 +22,7 @@ let button6 = document.getElementById("restBtn3")
 let buttons = document.getElementsByTagName("button")
 const countdown = document.getElementById("timer");
 
-
+// Funções para definir o tempo e estado para cada botão
 const time25 = () => {if (!focus && !rest) {startMinutes = 25; time = startMinutes * 60; console.log(time);}}
 const activate25 = () => { button1.dataset.active = "on"; button2.dataset.active = "off"; button3.dataset.active = "off"}
 
@@ -40,6 +40,8 @@ const activate10 = () => { button4.dataset.active = "off"; button5.dataset.activ
 
 const time15 = () => {if (!focus && !rest) {startMinutesRest = 15; restTime = startMinutesRest * 60; console.log(restTime);}}
 const activate15 = () => { button4.dataset.active = "off"; button5.dataset.active = "off"; button6.dataset.active = "on"}
+// -------------------------------------------------------------------------------------------------------------------------
+
 
 // Função associada ao botão principal responsável por iniciar todas as funções
 function startFunctions() {
@@ -52,13 +54,29 @@ function startFunctions() {
 
 // Função responsável por não permitir a sobreposição de tasks
 function flowControl () {
-  alert("One task at once! Don't overdo yourself!")
+  Swal.fire({
+  title: "Don't overdo yoursef!",
+  text: 'One task at once!',
+  icon: 'warning',
+  confirmButtonText: 'Ok',
+  customClass: "alertBox",
+  iconColor: "#ff6347",
+  confirmButtonColor: '#ff6347'
+  })
 }
 
 // Função responsável pela contagem e adição de tasks
 function cronometer() {
   if (startMinutes == 0 || startMinutesRest == 0 || insideValue == "") {
-    alert("Preencha todos os campos")
+    Swal.fire({
+      title: "Forgeting something?",
+      text: 'Fill all the fields',
+      icon: 'question',
+      confirmButtonText: 'Ok',
+      customClass: "alertBox",
+      iconColor: "#ff6347",
+      confirmButtonColor: '#ff6347'
+    })
   } 
   else {
     focus = true
@@ -79,6 +97,15 @@ function setTime() {
     countdown.innerHTML = `${minutes}:${seconds}`;
     time--
     if (time < 0 && focus) {
+      Swal.fire({
+        title: "Task finished!",
+        text: 'Time to rest now',
+        icon: 'success',
+        confirmButtonText: 'Ok',
+        customClass: "alertBox",
+        iconColor: "#ff6347",
+        confirmButtonColor: '#ff6347'
+      })
       time = restTime
       focus = false
       rest = true
@@ -129,6 +156,7 @@ function listenerHandle() {
   insideValue = this.value;
 }
 
+
 // Limpa o input de texto e reseta o estado dos botões
 function Transfer() {
   if (insideValue) {
@@ -142,6 +170,7 @@ function Transfer() {
     button6.dataset.active = "off"
   }
 }
+
 
 // Adiciona as tarefas do input à barra lateral com os devidos elementos e atributos
 let i = 0 // Variável utilizada para a criação de diferentes id's através da sua iteração

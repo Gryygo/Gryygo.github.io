@@ -321,3 +321,14 @@ footer {
   transform: rotate(45deg);
 }
 /* ------------------- */
+
+
+/* Alert Boxes styles */
+.alertBox {
+  background-color: white;
+  font-size: 12px;
+  color: var(--red);
+  border-radius: 20px;
+  width: 340px;
+}
+/* ------------------- */

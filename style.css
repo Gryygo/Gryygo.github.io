@@ -3,6 +3,7 @@
 
 :root {
   --red: #ff6347;
+  --black: rgb(55, 55, 55)
 }
 
 /* General configurations  */
@@ -168,13 +169,13 @@ button {
   transition: background-color 0.3s, border-radius 0.3s, top 0.1s;
 }
 #submitBtn {
-  background-color: rgb(55, 55, 55);
+  background-color: var(--black);
 }
 button:active {
   top: 3px;
 }
 button[data-active="on"] {
-  background-color: rgb(55, 55, 55);
+  background-color: var(--black);
   border-radius: 18px;
 }
 .timeBtn {
@@ -228,7 +229,7 @@ input[type="text"]:focus {
   border-radius: 60px;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgb(55, 55, 55);
+  background: var(--black);
   border-radius: 10px;
   border-radius: 0px 20px 20px 0px;
 }
@@ -266,7 +267,7 @@ footer {
 /* ---------------------------- */
 
 
-/* Checkbox and input styles */
+/* Checkbox and label styles */
 .container {
   display: block;
   position: relative;
@@ -322,13 +323,3 @@ footer {
 }
 /* ------------------- */
 
-
-/* Alert Boxes styles */
-.alertBox {
-  background-color: white;
-  font-size: 12px;
-  color: var(--red);
-  border-radius: 20px;
-  width: 340px;
-}
-/* ------------------- */

@@ -1,7 +1,7 @@
 // To do list:
-//   Talvez: mudar a caixa de alert 
 //   Ajustar a responsividade 
 //   Adicionar funcionalidade de exclusão de tarefas
+//   Talvez adicionar night mode
 
 let startMinutes = 0;
 let startMinutesRest = 0
@@ -55,13 +55,13 @@ function startFunctions() {
 // Função responsável por não permitir a sobreposição de tasks
 function flowControl () {
   Swal.fire({
-  title: "Don't overdo yoursef!",
-  text: 'One task at once!',
+  title: "<span style='font-size: 20px'>Don't overdo yoursef!</span>",
+  html: '<span style="font-size: 16px">One task at once!</span>',
   icon: 'warning',
-  confirmButtonText: 'Ok',
-  customClass: "alertBox",
+  showConfirmButton: false,
+  color: "#ff6347",
   iconColor: "#ff6347",
-  confirmButtonColor: '#ff6347'
+  width: "250px"
   })
 }
 
@@ -69,13 +69,14 @@ function flowControl () {
 function cronometer() {
   if (startMinutes == 0 || startMinutesRest == 0 || insideValue == "") {
     Swal.fire({
-      title: "Forgeting something?",
-      text: 'Fill all the fields',
+      title: "<span style='font-size: 20px'>Forgetting something?</span>",
+      html: '<span style="font-size: 16px" >Fill all the fields</span>',
       icon: 'question',
       confirmButtonText: 'Ok',
-      customClass: "alertBox",
+      showConfirmButton: false,
+      color: "#ff6347",
       iconColor: "#ff6347",
-      confirmButtonColor: '#ff6347'
+      width: "250px"
     })
   } 
   else {
@@ -98,13 +99,13 @@ function setTime() {
     time--
     if (time < 0 && focus) {
       Swal.fire({
-        title: "Task finished!",
-        text: 'Time to rest now',
         icon: 'success',
-        confirmButtonText: 'Ok',
-        customClass: "alertBox",
+        title: "<span style='font-size: 20px'>Task finished!</span>",
+        html: "<span style='font-size: 16px'>Time to rest now</span>",
+        showConfirmButton: false,
+        color: "#ff6347",
         iconColor: "#ff6347",
-        confirmButtonColor: '#ff6347'
+        width: "250px"
       })
       time = restTime
       focus = false
